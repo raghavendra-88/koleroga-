@@ -1,0 +1,214 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", "Noto Sans Kannada", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Noto Sans Kannada", ui-sans-serif, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-leaf: var(--leaf);
+  --color-leaf-foreground: var(--leaf-foreground);
+  --color-earth: var(--earth);
+  --color-earth-foreground: var(--earth-foreground);
+  --color-sky: var(--sky);
+  --color-sky-foreground: var(--sky-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-card: var(--shadow-card);
+  --shadow-float: var(--shadow-float);
+}
+
+:root {
+  --radius: 1.25rem;
+  --background: oklch(0.988 0.012 145);
+  --foreground: oklch(0.24 0.03 150);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.03 150);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.03 150);
+  --primary: oklch(0.512 0.117 146.5);
+  --primary-foreground: oklch(0.995 0.005 145);
+  --secondary: oklch(0.955 0.028 145);
+  --secondary-foreground: oklch(0.4 0.08 147);
+  --muted: oklch(0.962 0.014 145);
+  --muted-foreground: oklch(0.53 0.024 152);
+  --accent: oklch(0.945 0.045 146);
+  --accent-foreground: oklch(0.4 0.08 147);
+  --destructive: oklch(0.585 0.212 26.5);
+  --destructive-foreground: oklch(0.995 0.005 145);
+  --border: oklch(0.918 0.018 148);
+  --input: oklch(0.918 0.018 148);
+  --ring: oklch(0.658 0.163 146);
+  --leaf: oklch(0.658 0.163 146);
+  --leaf-foreground: oklch(0.995 0.005 145);
+  --earth: oklch(0.435 0.049 45);
+  --earth-foreground: oklch(0.98 0.01 60);
+  --sky: oklch(0.782 0.11 226);
+  --sky-foreground: oklch(0.25 0.06 240);
+  --warning: oklch(0.755 0.163 62);
+  --warning-foreground: oklch(0.25 0.05 60);
+  --success: oklch(0.79 0.106 146);
+  --success-foreground: oklch(0.28 0.06 147);
+  --chart-1: oklch(0.512 0.117 146.5);
+  --chart-2: oklch(0.658 0.163 146);
+  --chart-3: oklch(0.782 0.11 226);
+  --chart-4: oklch(0.755 0.163 62);
+  --chart-5: oklch(0.585 0.212 26.5);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.24 0.03 150);
+  --sidebar-primary: oklch(0.512 0.117 146.5);
+  --sidebar-primary-foreground: oklch(0.995 0.005 145);
+  --sidebar-accent: oklch(0.955 0.028 145);
+  --sidebar-accent-foreground: oklch(0.4 0.08 147);
+  --sidebar-border: oklch(0.918 0.018 148);
+  --sidebar-ring: oklch(0.658 0.163 146);
+  --shadow-soft: 0 1px 2px oklch(0.24 0.03 150 / 0.04), 0 4px 12px oklch(0.24 0.03 150 / 0.05);
+  --shadow-card: 0 2px 6px oklch(0.24 0.03 150 / 0.05), 0 12px 28px -8px oklch(0.24 0.03 150 / 0.1);
+  --shadow-float: 0 18px 40px -12px oklch(0.512 0.117 146.5 / 0.35);
+  --gradient-leaf: linear-gradient(135deg, oklch(0.512 0.117 146.5), oklch(0.68 0.16 145));
+  --gradient-sky: linear-gradient(135deg, oklch(0.6 0.11 232), oklch(0.8 0.1 220));
+}
+
+.dark {
+  --background: oklch(0.19 0.024 152);
+  --foreground: oklch(0.968 0.012 145);
+  --card: oklch(0.235 0.028 152);
+  --card-foreground: oklch(0.968 0.012 145);
+  --popover: oklch(0.235 0.028 152);
+  --popover-foreground: oklch(0.968 0.012 145);
+  --primary: oklch(0.68 0.16 145);
+  --primary-foreground: oklch(0.17 0.03 152);
+  --secondary: oklch(0.29 0.033 152);
+  --secondary-foreground: oklch(0.93 0.03 145);
+  --muted: oklch(0.29 0.033 152);
+  --muted-foreground: oklch(0.73 0.025 150);
+  --accent: oklch(0.32 0.045 150);
+  --accent-foreground: oklch(0.93 0.03 145);
+  --destructive: oklch(0.65 0.2 26.5);
+  --destructive-foreground: oklch(0.98 0.01 60);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.68 0.16 145);
+  --leaf: oklch(0.68 0.16 145);
+  --leaf-foreground: oklch(0.17 0.03 152);
+  --earth: oklch(0.55 0.055 45);
+  --earth-foreground: oklch(0.98 0.01 60);
+  --sky: oklch(0.72 0.11 226);
+  --sky-foreground: oklch(0.17 0.03 240);
+  --warning: oklch(0.755 0.163 62);
+  --warning-foreground: oklch(0.2 0.04 60);
+  --success: oklch(0.72 0.13 146);
+  --success-foreground: oklch(0.17 0.03 152);
+  --chart-1: oklch(0.68 0.16 145);
+  --chart-2: oklch(0.79 0.106 146);
+  --chart-3: oklch(0.72 0.11 226);
+  --chart-4: oklch(0.755 0.163 62);
+  --chart-5: oklch(0.65 0.2 26.5);
+  --sidebar: oklch(0.235 0.028 152);
+  --sidebar-foreground: oklch(0.968 0.012 145);
+  --sidebar-primary: oklch(0.68 0.16 145);
+  --sidebar-primary-foreground: oklch(0.17 0.03 152);
+  --sidebar-accent: oklch(0.32 0.045 150);
+  --sidebar-accent-foreground: oklch(0.93 0.03 145);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.68 0.16 145);
+  --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.3), 0 4px 12px oklch(0 0 0 / 0.25);
+  --shadow-card: 0 2px 6px oklch(0 0 0 / 0.35), 0 14px 30px -10px oklch(0 0 0 / 0.45);
+  --shadow-float: 0 18px 40px -12px oklch(0 0 0 / 0.6);
+  --gradient-leaf: linear-gradient(135deg, oklch(0.42 0.1 146.5), oklch(0.6 0.15 145));
+  --gradient-sky: linear-gradient(135deg, oklch(0.4 0.09 235), oklch(0.6 0.1 222));
+}
+
+@utility bg-gradient-leaf {
+  background-image: var(--gradient-leaf);
+}
+
+@utility bg-gradient-sky {
+  background-image: var(--gradient-sky);
+}
+
+@utility surface-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-card);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
